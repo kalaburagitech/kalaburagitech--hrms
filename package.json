@@ -1,0 +1,21 @@
+{
+  "name": "kalaburagitech-hrms",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "app",
+    "convex"
+  ],
+  "scripts": {
+    "dev": "npm --workspace app run dev",
+    "build": "npm --workspace app run build",
+    "lint": "npm --workspace app run lint",
+    "typecheck": "npm --workspace app run typecheck"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "convex": "^1.42.1"
+  }
+}

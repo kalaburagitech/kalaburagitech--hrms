@@ -1,0 +1,11 @@
+{
+  "name": "kalaburagitech-hrms-convex",
+  "private": true,
+  "dependencies": {
+    "@convex-dev/auth": "^0.0.94",
+    "convex": "^1.42.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}
