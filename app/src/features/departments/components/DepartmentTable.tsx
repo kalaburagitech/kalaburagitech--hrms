@@ -50,14 +50,14 @@ export function DepartmentTable({
     {
       accessorKey: "code",
       header: "Code",
-      cell: ({ row }) => <span className="text-slate-400">{row.getValue("code") || '-'}</span>
+      cell: ({ row }) => <span className="text-muted-foreground">{row.getValue("code") || '-'}</span>
     },
     {
       accessorKey: "description",
       header: "Description",
       cell: ({ row }) => {
         const desc = row.getValue("description") as string;
-        return <span className="text-slate-400 max-w-[200px] truncate block">{desc || '-'}</span>
+        return <span className="text-muted-foreground max-w-[200px] truncate block">{desc || '-'}</span>
       }
     },
     {
@@ -67,7 +67,7 @@ export function DepartmentTable({
         const status = row.getValue("status") as string;
         return (
           <span className={`rounded-full px-2 py-1 text-xs font-medium capitalize
-            ${status === 'active' ? 'bg-green-500/10 text-green-500' : 'bg-slate-500/10 text-slate-500'}
+            ${status === 'active' ? 'bg-green-500/10 text-green-500' : 'bg-slate-500/10 text-muted-foreground'}
           `}>
             {status}
           </span>
@@ -79,7 +79,7 @@ export function DepartmentTable({
       header: "Created Date",
       cell: ({ row }) => {
         const dateStr = row.getValue("createdAt") as string;
-        return <span className="text-slate-400">{new Date(dateStr).toLocaleDateString()}</span>
+        return <span className="text-muted-foreground">{new Date(dateStr).toLocaleDateString()}</span>
       }
     },
     {
@@ -93,17 +93,17 @@ export function DepartmentTable({
               variant="outline"
               size="icon"
               onClick={() => onEdit(dept)}
-              className="h-8 w-8 border-white/10 bg-transparent hover:bg-white/10 hover:text-white"
+              className="h-8 w-8 border-border bg-transparent hover:bg-accent hover:text-accent-foreground hover:text-foreground"
             >
-              <Edit2 className="h-4 w-4 text-slate-300" />
+              <Edit2 className="h-4 w-4 text-muted-foreground" />
             </Button>
             <Button
               variant="outline"
               size="icon"
               onClick={() => onDelete(dept)}
-              className="h-8 w-8 border-white/10 bg-transparent hover:bg-red-500/20 hover:text-red-400"
+              className="h-8 w-8 border-border bg-transparent hover:bg-red-500/20 hover:text-red-400"
             >
-              <Trash2 className="h-4 w-4 text-slate-400 hover:text-red-400" />
+              <Trash2 className="h-4 w-4 text-muted-foreground hover:text-red-400" />
             </Button>
           </div>
         );
@@ -129,14 +129,14 @@ export function DepartmentTable({
 
   return (
     <div className="space-y-4">
-      <div className="rounded-xl border border-white/10 overflow-hidden">
+      <div className="rounded-xl border border-border overflow-hidden">
         <Table>
-          <TableHeader className="bg-slate-900/50">
+          <TableHeader className="bg-card/50">
             {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id} className="border-white/10 hover:bg-transparent">
+              <TableRow key={headerGroup.id} className="border-border hover:bg-transparent">
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id} className="text-slate-400 font-medium">
+                    <TableHead key={header.id} className="text-muted-foreground font-medium">
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -155,7 +155,7 @@ export function DepartmentTable({
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
-                  className="border-white/10 hover:bg-white/5 transition-colors"
+                  className="border-border hover:bg-accent/50 transition-colors"
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
@@ -171,7 +171,7 @@ export function DepartmentTable({
               <TableRow>
                 <TableCell
                   colSpan={columns.length}
-                  className="h-32 text-center text-slate-400"
+                  className="h-32 text-center text-muted-foreground"
                 >
                   <div className="flex flex-col items-center justify-center space-y-1">
                     <p>No departments found.</p>
@@ -185,7 +185,7 @@ export function DepartmentTable({
       </div>
       
       {/* Pagination Controls */}
-      <div className="flex items-center justify-between text-sm text-slate-400">
+      <div className="flex items-center justify-between text-sm text-muted-foreground">
         <div>
           Showing {data.length} results.
         </div>
@@ -195,7 +195,7 @@ export function DepartmentTable({
             size="sm"
             onClick={onPrevPage}
             disabled={pageIndex === 0}
-            className="border-white/10 bg-transparent text-white hover:bg-white/10"
+            className="border-border bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground"
           >
             Previous
           </Button>
@@ -204,7 +204,7 @@ export function DepartmentTable({
             size="sm"
             onClick={onNextPage}
             disabled={!hasMore}
-            className="border-white/10 bg-transparent text-white hover:bg-white/10"
+            className="border-border bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground"
           >
             Next
           </Button>
@@ -213,3 +213,4 @@ export function DepartmentTable({
     </div>
   );
 }
+

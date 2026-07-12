@@ -44,7 +44,7 @@ export function AttendancePage() {
     <div className="flex h-full flex-col gap-6 p-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight text-white">Attendance</h1>
+          <h1 className="text-3xl font-bold tracking-tight text-foreground">Attendance</h1>
           <p className="text-gray-400">Manage employee attendance and tracking.</p>
         </div>
         <Button
@@ -121,3 +121,4 @@ export function AttendancePage() {
     </div>
   );
 }
+

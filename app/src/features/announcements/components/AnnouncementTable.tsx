@@ -44,7 +44,7 @@ export function AnnouncementTable({ data, isLoading, loadMore, status }: Announc
       accessorKey: "title",
       header: "Title",
       cell: ({ row }) => (
-        <div className="font-medium text-white">{row.getValue("title")}</div>
+        <div className="font-medium text-foreground">{row.getValue("title")}</div>
       ),
     },
     {
@@ -54,7 +54,7 @@ export function AnnouncementTable({ data, isLoading, loadMore, status }: Announc
         const priority = row.getValue("priority") as string;
         return (
           <span className={`rounded-full px-2 py-1 text-xs font-medium capitalize
-            ${priority === 'low' ? 'bg-slate-500/10 text-slate-400' : ''}
+            ${priority === 'low' ? 'bg-slate-500/10 text-muted-foreground' : ''}
             ${priority === 'medium' ? 'bg-orange-500/10 text-orange-500' : ''}
             ${priority === 'high' ? 'bg-red-500/10 text-red-500' : ''}
           `}>
@@ -68,7 +68,7 @@ export function AnnouncementTable({ data, isLoading, loadMore, status }: Announc
       header: "Publish Date",
       cell: ({ row }) => {
         const date = row.getValue("publishDate") as string;
-        return <div className="text-slate-400">{date}</div>;
+        return <div className="text-muted-foreground">{date}</div>;
       }
     },
     {
@@ -80,7 +80,7 @@ export function AnnouncementTable({ data, isLoading, loadMore, status }: Announc
           <span className={`rounded-full px-2 py-1 text-xs font-medium capitalize
             ${statusVal === 'published' ? 'bg-green-500/10 text-green-500' : ''}
             ${statusVal === 'draft' ? 'bg-yellow-500/10 text-yellow-500' : ''}
-            ${statusVal === 'archived' ? 'bg-slate-500/10 text-slate-500' : ''}
+            ${statusVal === 'archived' ? 'bg-slate-500/10 text-muted-foreground' : ''}
           `}>
             {statusVal}
           </span>
@@ -100,7 +100,7 @@ export function AnnouncementTable({ data, isLoading, loadMore, status }: Announc
         return (
           <div className="flex justify-end">
             <AnnouncementDialogs mode="edit" announcement={announcement}>
-              <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-400 hover:text-white">
+              <Button variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground hover:text-foreground">
                 <Pencil className="h-4 w-4" />
                 <span className="sr-only">Edit</span>
               </Button>
@@ -142,14 +142,14 @@ export function AnnouncementTable({ data, isLoading, loadMore, status }: Announc
 
   return (
     <div className="space-y-4">
-      <div className="rounded-md border border-white/10">
+      <div className="rounded-md border border-border">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id} className="border-white/10 hover:bg-transparent">
+              <TableRow key={headerGroup.id} className="border-border hover:bg-transparent">
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id} className="text-slate-400">
+                    <TableHead key={header.id} className="text-muted-foreground">
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -168,7 +168,7 @@ export function AnnouncementTable({ data, isLoading, loadMore, status }: Announc
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
-                  className="border-white/10 hover:bg-white/5"
+                  className="border-border hover:bg-accent/50"
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
@@ -184,7 +184,7 @@ export function AnnouncementTable({ data, isLoading, loadMore, status }: Announc
               <TableRow>
                 <TableCell
                   colSpan={columns.length}
-                  className="h-24 text-center text-slate-400"
+                  className="h-24 text-center text-muted-foreground"
                 >
                   No announcements found.
                 </TableCell>
@@ -194,7 +194,7 @@ export function AnnouncementTable({ data, isLoading, loadMore, status }: Announc
         </Table>
       </div>
       <div className="flex items-center justify-between">
-        <div className="text-sm text-slate-400">
+        <div className="text-sm text-muted-foreground">
           {status === "LoadingMore" ? "Loading more..." : ""}
         </div>
         <div className="flex items-center space-x-2">
@@ -203,7 +203,7 @@ export function AnnouncementTable({ data, isLoading, loadMore, status }: Announc
               variant="outline"
               size="sm"
               onClick={() => loadMore()}
-              className="border-white/10 bg-transparent text-white hover:bg-white/10 hover:text-white"
+              className="border-border bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground hover:text-foreground"
             >
               Load More from Server
             </Button>
@@ -213,7 +213,7 @@ export function AnnouncementTable({ data, isLoading, loadMore, status }: Announc
             size="sm"
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
-            className="border-white/10 bg-transparent text-white hover:bg-white/10 hover:text-white"
+            className="border-border bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground hover:text-foreground"
           >
             Previous
           </Button>
@@ -222,7 +222,7 @@ export function AnnouncementTable({ data, isLoading, loadMore, status }: Announc
             size="sm"
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
-            className="border-white/10 bg-transparent text-white hover:bg-white/10 hover:text-white"
+            className="border-border bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground hover:text-foreground"
           >
             Next
           </Button>
@@ -231,3 +231,4 @@ export function AnnouncementTable({ data, isLoading, loadMore, status }: Announc
     </div>
   );
 }
+

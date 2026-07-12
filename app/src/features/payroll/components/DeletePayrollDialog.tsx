@@ -47,16 +47,16 @@ export function DeletePayrollDialog({
 
   return (
     <AlertDialog open={open} onOpenChange={onOpenChange}>
-      <AlertDialogContent className="bg-slate-950 border-white/10 text-slate-100">
+      <AlertDialogContent className="bg-background border-border text-foreground">
         <AlertDialogHeader>
           <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-          <AlertDialogDescription className="text-slate-400">
+          <AlertDialogDescription className="text-muted-foreground">
             This action cannot be undone. This will permanently delete the payroll
             record for {payroll?.employee?.firstName} {payroll?.employee?.lastName} (Month: {payroll?.month}/{payroll?.year}).
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel className="border-white/10 hover:bg-white/10 hover:text-white">Cancel</AlertDialogCancel>
+          <AlertDialogCancel className="border-border hover:bg-accent hover:text-accent-foreground hover:text-foreground">Cancel</AlertDialogCancel>
           <AlertDialogAction
             onClick={(e) => {
               e.preventDefault();
@@ -72,3 +72,4 @@ export function DeletePayrollDialog({
     </AlertDialog>
   );
 }
+

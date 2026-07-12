@@ -4,7 +4,8 @@ export default function GlobalLoading() {
       <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
         <div className="h-6 w-6 animate-spin rounded-full border-2 border-current border-t-transparent" />
       </div>
-      <p className="text-slate-400 text-sm animate-pulse">Loading module...</p>
+      <p className="text-muted-foreground text-sm animate-pulse">Loading module...</p>
     </div>
   );
 }
+

@@ -61,7 +61,7 @@ export function PayrollDialogs({ children, payroll, mode, employees, open: contr
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-[500px] bg-slate-950 border-white/10 text-slate-100">
+      <DialogContent className="sm:max-w-[500px] bg-background border-border text-foreground">
         <DialogHeader>
           <DialogTitle>
             {mode === "create" ? "Add Payroll Record" : "Edit Payroll Record"}
@@ -77,3 +77,4 @@ export function PayrollDialogs({ children, payroll, mode, employees, open: contr
     </Dialog>
   );
 }
+

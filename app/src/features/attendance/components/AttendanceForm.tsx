@@ -274,3 +274,4 @@ export function AttendanceForm({ initialData, onSuccess, onCancel }: AttendanceF
     </Form>
   );
 }
+

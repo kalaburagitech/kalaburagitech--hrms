@@ -56,15 +56,15 @@ export function DeleteAttendanceDialog({
           <AlertDialogTitle className="text-xl font-semibold">Delete Attendance Record</AlertDialogTitle>
           <AlertDialogDescription className="text-gray-400">
             Are you sure you want to delete the attendance record for{" "}
-            <span className="font-semibold text-white">{employeeName}</span> on{" "}
-            <span className="font-semibold text-white">{attendance?.date}</span>?
+            <span className="font-semibold text-foreground">{employeeName}</span> on{" "}
+            <span className="font-semibold text-foreground">{attendance?.date}</span>?
             This action cannot be undone.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter className="mt-6 border-t border-gray-800 pt-4">
           <AlertDialogCancel
             disabled={isDeleting}
-            className="border-gray-800 bg-transparent text-white hover:bg-gray-900"
+            className="border-gray-800 bg-transparent text-foreground hover:bg-gray-900"
           >
             Cancel
           </AlertDialogCancel>
@@ -83,3 +83,4 @@ export function DeleteAttendanceDialog({
     </AlertDialog>
   );
 }
+

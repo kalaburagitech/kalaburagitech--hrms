@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Briefcase, CalendarDays, Clock, FileText, Home, Layers, ShieldCheck, Tags, Users, Wallet } from 'lucide-react';
+import { ModeToggle } from './mode-toggle';
 
 const nav = [
   { label: 'Dashboard', href: '/', icon: Home },
@@ -15,29 +16,37 @@ const nav = [
 
 export function Sidebar() {
   return (
-    <aside className="flex min-h-screen flex-col rounded-[2rem] border border-white/10 bg-slate-950/80 p-6 shadow-xl shadow-slate-950/20">
-      <div className="mb-8 flex items-center gap-3 rounded-3xl border border-white/10 bg-slate-900/80 p-4">
-        <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-cyan-500/10 text-cyan-300">
-          <Briefcase className="h-6 w-6" />
-        </div>
-        <div>
-          <p className="text-sm uppercase tracking-[0.24em] text-cyan-300/80">KalaburagiTech</p>
-          <p className="text-base font-semibold text-white">HRMS Suite</p>
+    <aside className="flex min-h-[calc(100vh-3rem)] flex-col rounded-[2rem] border border-border bg-card/80 p-6 shadow-xl shadow-slate-950/20 dark:shadow-slate-950/20">
+      <div className="mb-8 flex items-center justify-between gap-3 rounded-3xl border border-border bg-background/80 p-4">
+        <div className="flex items-center gap-3">
+          <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-primary/10 text-primary">
+            <Briefcase className="h-6 w-6" />
+          </div>
+          <div>
+            <p className="text-sm uppercase tracking-[0.24em] text-primary/80">KalaburagiTech</p>
+            <p className="text-base font-semibold text-foreground">HRMS Suite</p>
+          </div>
         </div>
       </div>
 
-      <nav className="space-y-2">
+      <nav className="space-y-2 flex-1">
         {nav.map((item) => (
           <Link
             key={item.href}
             href={item.href}
-            className="flex items-center gap-3 rounded-3xl px-4 py-3 text-sm font-medium text-slate-200 transition hover:bg-slate-900/80 hover:text-white"
+            className="flex items-center gap-3 rounded-3xl px-4 py-3 text-sm font-medium text-muted-foreground transition hover:bg-background/80 hover:text-foreground"
           >
             <item.icon className="h-5 w-5" />
             {item.label}
           </Link>
         ))}
       </nav>
+      
+      <div className="mt-8 flex items-center justify-between rounded-3xl border border-border bg-background/80 p-4">
+        <span className="text-sm font-medium text-muted-foreground pl-2">Theme</span>
+        <ModeToggle />
+      </div>
     </aside>
   );
 }
+

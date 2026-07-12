@@ -48,7 +48,7 @@ export function EmployeeDialogs({ children, employee, mode }: EmployeeDialogsPro
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-[425px] bg-slate-950 border-white/10 text-slate-100">
+      <DialogContent className="sm:max-w-[425px] bg-background border-border text-foreground">
         <DialogHeader>
           <DialogTitle>
             {mode === "create" ? "Add New Employee" : "Edit Employee"}
@@ -63,3 +63,4 @@ export function EmployeeDialogs({ children, employee, mode }: EmployeeDialogsPro
     </Dialog>
   );
 }
+

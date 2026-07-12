@@ -29,7 +29,7 @@ export function DeleteDepartmentDialog({
 }: DeleteDepartmentDialogProps) {
   return (
     <AlertDialog open={open} onOpenChange={onOpenChange}>
-      <AlertDialogContent className="bg-slate-950 border-white/10 text-slate-100">
+      <AlertDialogContent className="bg-background border-border text-foreground">
         <AlertDialogHeader>
           <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
           <AlertDialogDescription>
@@ -38,7 +38,7 @@ export function DeleteDepartmentDialog({
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel className="bg-transparent border-white/10 hover:bg-white/10">
+          <AlertDialogCancel className="bg-transparent border-border hover:bg-accent hover:text-accent-foreground">
             Cancel
           </AlertDialogCancel>
           <AlertDialogAction
@@ -47,7 +47,7 @@ export function DeleteDepartmentDialog({
               onConfirm();
             }}
             disabled={isDeleting}
-            className="bg-red-600 text-white hover:bg-red-700"
+            className="bg-red-600 text-foreground hover:bg-red-700"
           >
             {isDeleting ? "Deleting..." : "Delete"}
           </AlertDialogAction>
@@ -56,3 +56,4 @@ export function DeleteDepartmentDialog({
     </AlertDialog>
   );
 }
+

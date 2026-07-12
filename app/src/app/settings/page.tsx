@@ -8,3 +8,4 @@ export const metadata: Metadata = {
 export default function SettingsRoute() {
   return <ComingSoon title="Module: Settings" description="This enterprise feature is currently under active development." />;
 }
+

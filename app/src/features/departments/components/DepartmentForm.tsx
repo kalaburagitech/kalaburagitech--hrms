@@ -107,3 +107,4 @@ export function DepartmentForm({ initialValues, onSubmit, isSubmitting }: Depart
     </Form>
   );
 }
+

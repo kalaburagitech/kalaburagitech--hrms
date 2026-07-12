@@ -12,7 +12,7 @@ import {
 import { Button } from "../../../components/ui/button";
 import { Trash2 } from "lucide-react";
 import { useDesignationActions } from "../services";
-import { Id } from "../../../../../../convex/_generated/dataModel";
+import { Id } from "../../../../../convex/_generated/dataModel";
 
 interface DeleteDesignationDialogProps {
   id: Id<"designations">;
@@ -57,3 +57,4 @@ export function DeleteDesignationDialog({ id, name }: DeleteDesignationDialogPro
     </AlertDialog>
   );
 }
+

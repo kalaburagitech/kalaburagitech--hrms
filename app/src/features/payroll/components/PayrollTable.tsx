@@ -75,10 +75,10 @@ export const columns = (onEdit: (payroll: Payroll) => void, onDelete: (payroll: 
     cell: ({ row }) => {
       return (
         <div className="flex justify-end gap-2">
-          <Button variant="outline" size="sm" onClick={() => onEdit(row.original)} className="border-white/10 bg-transparent text-white hover:bg-white/10">
+          <Button variant="outline" size="sm" onClick={() => onEdit(row.original)} className="border-border bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground">
             Edit
           </Button>
-          <Button variant="outline" size="sm" onClick={() => onDelete(row.original)} className="border-white/10 bg-transparent text-red-400 hover:bg-red-500/10 hover:text-red-500">
+          <Button variant="outline" size="sm" onClick={() => onDelete(row.original)} className="border-border bg-transparent text-red-400 hover:bg-red-500/10 hover:text-red-500">
             Delete
           </Button>
         </div>
@@ -109,13 +109,13 @@ export function PayrollTable({ data, isLoading, onEdit, onDelete }: PayrollTable
 
   return (
     <div className="space-y-4">
-      <div className="rounded-md border border-white/10">
+      <div className="rounded-md border border-border">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id} className="border-white/10 hover:bg-transparent">
+              <TableRow key={headerGroup.id} className="border-border hover:bg-transparent">
                 {headerGroup.headers.map((header) => (
-                  <TableHead key={header.id} className="text-slate-400">
+                  <TableHead key={header.id} className="text-muted-foreground">
                     {header.isPlaceholder
                       ? null
                       : flexRender(
@@ -133,7 +133,7 @@ export function PayrollTable({ data, isLoading, onEdit, onDelete }: PayrollTable
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
-                  className="border-white/10 hover:bg-white/5"
+                  className="border-border hover:bg-accent/50"
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
@@ -149,7 +149,7 @@ export function PayrollTable({ data, isLoading, onEdit, onDelete }: PayrollTable
               <TableRow>
                 <TableCell
                   colSpan={tableColumns.length}
-                  className="h-24 text-center text-slate-400"
+                  className="h-24 text-center text-muted-foreground"
                 >
                   No payroll records found.
                 </TableCell>
@@ -164,7 +164,7 @@ export function PayrollTable({ data, isLoading, onEdit, onDelete }: PayrollTable
           size="sm"
           onClick={() => table.previousPage()}
           disabled={!table.getCanPreviousPage()}
-          className="border-white/10 bg-transparent text-white hover:bg-white/10 hover:text-white"
+          className="border-border bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground hover:text-foreground"
         >
           Previous
         </Button>
@@ -173,7 +173,7 @@ export function PayrollTable({ data, isLoading, onEdit, onDelete }: PayrollTable
           size="sm"
           onClick={() => table.nextPage()}
           disabled={!table.getCanNextPage()}
-          className="border-white/10 bg-transparent text-white hover:bg-white/10 hover:text-white"
+          className="border-border bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground hover:text-foreground"
         >
           Next
         </Button>
@@ -181,3 +181,4 @@ export function PayrollTable({ data, isLoading, onEdit, onDelete }: PayrollTable
     </div>
   );
 }
+

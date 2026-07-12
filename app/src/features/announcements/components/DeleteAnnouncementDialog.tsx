@@ -42,10 +42,10 @@ export function DeleteAnnouncementDialog({ children, id }: DeleteAnnouncementDia
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-[425px] bg-slate-950 border-white/10 text-slate-100">
+      <DialogContent className="sm:max-w-[425px] bg-background border-border text-foreground">
         <DialogHeader>
           <DialogTitle>Delete Announcement</DialogTitle>
-          <DialogDescription className="text-slate-400">
+          <DialogDescription className="text-muted-foreground">
             Are you sure you want to delete this announcement? This action cannot be undone.
           </DialogDescription>
         </DialogHeader>
@@ -53,7 +53,7 @@ export function DeleteAnnouncementDialog({ children, id }: DeleteAnnouncementDia
           <Button
             variant="outline"
             onClick={() => setOpen(false)}
-            className="border-white/10 bg-transparent text-white hover:bg-white/5"
+            className="border-border bg-transparent text-foreground hover:bg-accent/50"
             disabled={isDeleting}
           >
             Cancel
@@ -70,3 +70,4 @@ export function DeleteAnnouncementDialog({ children, id }: DeleteAnnouncementDia
     </Dialog>
   );
 }
+

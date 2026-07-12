@@ -96,20 +96,20 @@ export function DepartmentPage() {
     <div className="flex h-full flex-col gap-6">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-3xl font-semibold tracking-tight text-white">Departments</h1>
-          <p className="mt-2 text-sm text-slate-400">
+          <h1 className="text-3xl font-semibold tracking-tight text-foreground">Departments</h1>
+          <p className="mt-2 text-sm text-muted-foreground">
             Manage your organization&apos;s departments and structure.
           </p>
         </div>
-        <Button onClick={handleOpenCreate} className="bg-cyan-600 hover:bg-cyan-700 text-white gap-2">
+        <Button onClick={handleOpenCreate} className="bg-cyan-600 hover:bg-cyan-700 text-foreground gap-2">
           <Plus className="h-4 w-4" /> Add Department
         </Button>
       </div>
 
-      <div className="flex-1 rounded-3xl border border-white/5 bg-slate-900/50 p-6 shadow-xl">
+      <div className="flex-1 rounded-3xl border border-border bg-card/50 p-6 shadow-xl">
         <div className="mb-6 flex items-center gap-4">
           <div className="relative max-w-sm flex-1">
-            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
               placeholder="Search departments..."
               value={searchTerm}
@@ -117,7 +117,7 @@ export function DepartmentPage() {
                 setSearchTerm(e.target.value);
                 setPageIndex(0); // Reset page on search
               }}
-              className="pl-9 bg-slate-950/50 border-white/10 text-white placeholder:text-slate-500"
+              className="pl-9 bg-background/50 border-border text-foreground placeholder:text-muted-foreground"
             />
           </div>
         </div>
@@ -135,7 +135,7 @@ export function DepartmentPage() {
       </div>
 
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="sm:max-w-[425px] bg-slate-950 border-white/10 text-slate-100">
+        <DialogContent className="sm:max-w-[425px] bg-background border-border text-foreground">
           <DialogHeader>
             <DialogTitle>
               {editingDepartment ? "Edit Department" : "Add New Department"}
@@ -159,3 +159,4 @@ export function DepartmentPage() {
     </div>
   );
 }
+

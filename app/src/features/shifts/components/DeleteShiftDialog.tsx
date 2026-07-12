@@ -29,17 +29,17 @@ export function DeleteShiftDialog({
 }: DeleteShiftDialogProps) {
   return (
     <AlertDialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <AlertDialogContent className="bg-slate-900 border-slate-800 text-white">
+      <AlertDialogContent className="bg-card border-border text-foreground">
         <AlertDialogHeader>
           <AlertDialogTitle className="text-xl">Delete Shift</AlertDialogTitle>
-          <AlertDialogDescription className="text-slate-400">
+          <AlertDialogDescription className="text-muted-foreground">
             Are you sure you want to delete the shift "{shift?.name}"? This action cannot be undone.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel 
             disabled={isDeleting}
-            className="bg-transparent border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white"
+            className="bg-transparent border-border text-muted-foreground hover:bg-muted hover:text-foreground"
           >
             Cancel
           </AlertDialogCancel>
@@ -49,7 +49,7 @@ export function DeleteShiftDialog({
               onConfirm();
             }}
             disabled={isDeleting}
-            className="bg-red-600 text-white hover:bg-red-700"
+            className="bg-red-600 text-foreground hover:bg-red-700"
           >
             {isDeleting ? "Deleting..." : "Delete"}
           </AlertDialogAction>
@@ -58,3 +58,4 @@ export function DeleteShiftDialog({
     </AlertDialog>
   );
 }
+

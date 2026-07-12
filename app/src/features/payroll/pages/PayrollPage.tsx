@@ -24,19 +24,19 @@ export function PayrollPage() {
     <div className="flex h-full flex-col gap-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-semibold tracking-tight text-white">Payroll</h1>
-          <p className="mt-2 text-sm text-slate-400">
+          <h1 className="text-3xl font-semibold tracking-tight text-foreground">Payroll</h1>
+          <p className="mt-2 text-sm text-muted-foreground">
             Manage employee salaries, view payment statuses, and process payroll.
           </p>
         </div>
         <PayrollDialogs mode="create" employees={employeesData as any[]}>
-          <Button className="bg-white/10 text-white hover:bg-white/20">
+          <Button className="bg-white/10 text-foreground hover:bg-white/20">
             <Plus className="mr-2 h-4 w-4" /> Add Payroll
           </Button>
         </PayrollDialogs>
       </div>
       
-      <div className="flex-1 rounded-3xl border border-white/5 bg-slate-900/50 p-6 shadow-xl">
+      <div className="flex-1 rounded-3xl border border-border bg-card/50 p-6 shadow-xl">
         <PayrollTable 
           data={payrollData as unknown as Payroll[]} 
           isLoading={isLoading} 
@@ -69,3 +69,4 @@ export function PayrollPage() {
     </div>
   );
 }
+

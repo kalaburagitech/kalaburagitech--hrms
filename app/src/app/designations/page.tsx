@@ -5,3 +5,4 @@ import { DesignationPage } from "../../features/designations/pages/DesignationPa
 export default function Page() {
   return <DesignationPage />;
 }
+

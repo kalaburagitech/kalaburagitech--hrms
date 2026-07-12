@@ -76,35 +76,35 @@ export function ShiftPage() {
   const pageData = shifts.slice(pageIndex * 10, (pageIndex + 1) * 10);
 
   return (
-    <div className="flex-1 space-y-6 p-8 min-h-screen bg-slate-950 text-slate-50">
+    <div className="flex-1 space-y-6 p-8 min-h-screen bg-background text-slate-50">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h2 className="text-3xl font-bold tracking-tight text-white">Shifts</h2>
-          <p className="text-slate-400 mt-1">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground">Shifts</h2>
+          <p className="text-muted-foreground mt-1">
             Manage employee shifts and working hours
           </p>
         </div>
         <Button 
           onClick={handleCreate}
-          className="bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg shadow-indigo-900/20"
+          className="bg-indigo-600 hover:bg-indigo-700 text-foreground shadow-lg shadow-indigo-900/20"
         >
           <Plus className="mr-2 h-4 w-4" />
           Add Shift
         </Button>
       </div>
 
-      <div className="flex items-center space-x-2 bg-slate-900/50 p-1 rounded-lg border border-white/5 max-w-md">
-        <Search className="w-5 h-5 ml-2 text-slate-400" />
+      <div className="flex items-center space-x-2 bg-card/50 p-1 rounded-lg border border-border max-w-md">
+        <Search className="w-5 h-5 ml-2 text-muted-foreground" />
         <Input
           placeholder="Search shifts..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="border-0 bg-transparent focus-visible:ring-0 text-slate-200 placeholder:text-slate-500"
+          className="border-0 bg-transparent focus-visible:ring-0 text-foreground placeholder:text-muted-foreground"
         />
       </div>
 
       <ShiftTable
-        data={pageData}
+        data={pageData as unknown as Shift[]}
         isLoading={isLoading}
         onEdit={handleEdit}
         onDelete={handleDeleteClick}
@@ -135,3 +135,4 @@ export function ShiftPage() {
     </div>
   );
 }
+

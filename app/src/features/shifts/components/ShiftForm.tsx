@@ -77,17 +77,17 @@ export function ShiftForm({ shift, isOpen, onClose, onSubmit }: ShiftFormProps) 
 
   return (
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
-      <DialogContent className="sm:max-w-[600px] bg-slate-900 border-slate-800 text-white">
+      <DialogContent className="sm:max-w-[600px] bg-card border-border text-foreground">
         <DialogHeader>
           <DialogTitle className="text-xl font-semibold">
             {isEditing ? "Edit Shift" : "Create New Shift"}
           </DialogTitle>
           <Button
             variant="ghost"
-            className="absolute right-4 top-4 h-6 w-6 p-0 hover:bg-slate-800 rounded-full"
+            className="absolute right-4 top-4 h-6 w-6 p-0 hover:bg-muted rounded-full"
             onClick={onClose}
           >
-            <X className="h-4 w-4 text-slate-400" />
+            <X className="h-4 w-4 text-muted-foreground" />
             <span className="sr-only">Close</span>
           </Button>
         </DialogHeader>
@@ -100,11 +100,11 @@ export function ShiftForm({ shift, isOpen, onClose, onSubmit }: ShiftFormProps) 
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-slate-300">Shift Name</FormLabel>
+                    <FormLabel className="text-muted-foreground">Shift Name</FormLabel>
                     <FormControl>
                       <Input 
                         placeholder="e.g. Morning Shift" 
-                        className="bg-slate-950 border-slate-800 text-slate-100 placeholder:text-slate-500"
+                        className="bg-background border-border text-foreground placeholder:text-muted-foreground"
                         {...field} 
                       />
                     </FormControl>
@@ -118,11 +118,11 @@ export function ShiftForm({ shift, isOpen, onClose, onSubmit }: ShiftFormProps) 
                 name="code"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-slate-300">Shift Code</FormLabel>
+                    <FormLabel className="text-muted-foreground">Shift Code</FormLabel>
                     <FormControl>
                       <Input 
                         placeholder="e.g. MORN" 
-                        className="bg-slate-950 border-slate-800 text-slate-100 placeholder:text-slate-500"
+                        className="bg-background border-border text-foreground placeholder:text-muted-foreground"
                         {...field} 
                       />
                     </FormControl>
@@ -136,11 +136,11 @@ export function ShiftForm({ shift, isOpen, onClose, onSubmit }: ShiftFormProps) 
                 name="startTime"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-slate-300">Start Time (HH:MM)</FormLabel>
+                    <FormLabel className="text-muted-foreground">Start Time (HH:MM)</FormLabel>
                     <FormControl>
                       <Input 
                         placeholder="09:00" 
-                        className="bg-slate-950 border-slate-800 text-slate-100 placeholder:text-slate-500"
+                        className="bg-background border-border text-foreground placeholder:text-muted-foreground"
                         {...field} 
                       />
                     </FormControl>
@@ -154,11 +154,11 @@ export function ShiftForm({ shift, isOpen, onClose, onSubmit }: ShiftFormProps) 
                 name="endTime"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-slate-300">End Time (HH:MM)</FormLabel>
+                    <FormLabel className="text-muted-foreground">End Time (HH:MM)</FormLabel>
                     <FormControl>
                       <Input 
                         placeholder="17:00" 
-                        className="bg-slate-950 border-slate-800 text-slate-100 placeholder:text-slate-500"
+                        className="bg-background border-border text-foreground placeholder:text-muted-foreground"
                         {...field} 
                       />
                     </FormControl>
@@ -172,12 +172,12 @@ export function ShiftForm({ shift, isOpen, onClose, onSubmit }: ShiftFormProps) 
                 name="graceTime"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-slate-300">Grace Time (mins)</FormLabel>
+                    <FormLabel className="text-muted-foreground">Grace Time (mins)</FormLabel>
                     <FormControl>
                       <Input 
                         type="number"
                         placeholder="15" 
-                        className="bg-slate-950 border-slate-800 text-slate-100 placeholder:text-slate-500"
+                        className="bg-background border-border text-foreground placeholder:text-muted-foreground"
                         {...field}
                         onChange={e => field.onChange(parseInt(e.target.value) || 0)} 
                       />
@@ -192,12 +192,12 @@ export function ShiftForm({ shift, isOpen, onClose, onSubmit }: ShiftFormProps) 
                 name="breakDuration"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-slate-300">Break Duration (mins)</FormLabel>
+                    <FormLabel className="text-muted-foreground">Break Duration (mins)</FormLabel>
                     <FormControl>
                       <Input 
                         type="number"
                         placeholder="60" 
-                        className="bg-slate-950 border-slate-800 text-slate-100 placeholder:text-slate-500"
+                        className="bg-background border-border text-foreground placeholder:text-muted-foreground"
                         {...field} 
                         onChange={e => field.onChange(parseInt(e.target.value) || 0)}
                       />
@@ -213,11 +213,11 @@ export function ShiftForm({ shift, isOpen, onClose, onSubmit }: ShiftFormProps) 
               name="weeklyOff"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-slate-300">Weekly Off (Comma Separated)</FormLabel>
+                  <FormLabel className="text-muted-foreground">Weekly Off (Comma Separated)</FormLabel>
                   <FormControl>
                     <Input 
                       placeholder="e.g. Saturday, Sunday" 
-                      className="bg-slate-950 border-slate-800 text-slate-100 placeholder:text-slate-500"
+                      className="bg-background border-border text-foreground placeholder:text-muted-foreground"
                       {...field} 
                     />
                   </FormControl>
@@ -231,14 +231,14 @@ export function ShiftForm({ shift, isOpen, onClose, onSubmit }: ShiftFormProps) 
               name="status"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-slate-300">Status</FormLabel>
+                  <FormLabel className="text-muted-foreground">Status</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
-                      <SelectTrigger className="bg-slate-950 border-slate-800 text-slate-100">
+                      <SelectTrigger className="bg-background border-border text-foreground">
                         <SelectValue placeholder="Select status" />
                       </SelectTrigger>
                     </FormControl>
-                    <SelectContent className="bg-slate-900 border-slate-800 text-slate-100">
+                    <SelectContent className="bg-card border-border text-foreground">
                       <SelectItem value="active">Active</SelectItem>
                       <SelectItem value="inactive">Inactive</SelectItem>
                     </SelectContent>
@@ -248,19 +248,19 @@ export function ShiftForm({ shift, isOpen, onClose, onSubmit }: ShiftFormProps) 
               )}
             />
 
-            <div className="flex justify-end gap-3 pt-4 border-t border-slate-800">
+            <div className="flex justify-end gap-3 pt-4 border-t border-border">
               <Button 
                 type="button" 
                 variant="outline" 
                 onClick={onClose}
-                className="bg-transparent border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white"
+                className="bg-transparent border-border text-muted-foreground hover:bg-muted hover:text-foreground"
               >
                 Cancel
               </Button>
               <Button 
                 type="submit"
                 disabled={form.formState.isSubmitting}
-                className="bg-indigo-600 text-white hover:bg-indigo-700"
+                className="bg-indigo-600 text-foreground hover:bg-indigo-700"
               >
                 {form.formState.isSubmitting ? "Saving..." : isEditing ? "Save Changes" : "Create Shift"}
               </Button>
@@ -271,3 +271,4 @@ export function ShiftForm({ shift, isOpen, onClose, onSubmit }: ShiftFormProps) 
     </Dialog>
   );
 }
+

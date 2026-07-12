@@ -75,7 +75,7 @@ export function AttendanceTable({ data, onEdit, onDelete }: AttendanceTableProps
                 </div>
               </TableCell>
               <TableCell>
-                <Badge variant="outline" className={getStatusColor(record.status)}>
+                <Badge variant="secondary" className={getStatusColor(record.status)}>
                   {record.status.replace("_", " ").toUpperCase()}
                 </Badge>
               </TableCell>
@@ -85,7 +85,7 @@ export function AttendanceTable({ data, onEdit, onDelete }: AttendanceTableProps
                     variant="ghost"
                     size="icon"
                     onClick={() => onEdit(record)}
-                    className="h-8 w-8 text-gray-400 hover:bg-gray-800 hover:text-white"
+                    className="h-8 w-8 text-gray-400 hover:bg-gray-800 hover:text-foreground"
                   >
                     <Edit2 className="h-4 w-4" />
                   </Button>
@@ -106,3 +106,4 @@ export function AttendanceTable({ data, onEdit, onDelete }: AttendanceTableProps
     </div>
   );
 }
+
